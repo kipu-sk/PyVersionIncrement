@@ -13,7 +13,10 @@ The idea behind automatic version increment for Python code cannot be bound with
     * git hook post-commit containing that script
     * git template that ensures that the post-commit hook will be automatically copied into the .git folder with each new git init.
     
-    
+ ## Pythn script
+ PyVersionInc.py
+ 
+ ### Additional explanations to the script
  The comments contained in the code explain it functioning and requirements; however, the following should be pointed to:
 
     The code should contain the 'shebang' in the first line, pointing to the Python executable used as the interpreter;
@@ -27,28 +30,29 @@ The idea behind automatic version increment for Python code cannot be bound with
     The version.toml file is located in the folder containing the .git directory;
     If no version.toml is found in the folder containing the .git directory, a new one will be created with revision number 1;
 
-Git Hook
+## Git Hook
 
 The above Python script is placed within a Git hook post-commit in the .git/hooks directory
-Git Template
+
+## Git Template
 
 In order to automatically copy the post-commit hook into each newly created repository, the following things must be done ( source).
-Create a Git Template Folder
+### Create a Git Template Folder
 
 Using Windows Explorer or Command Prompt, create a dedicated folder for the templates, e.g. ~/.git_template (~ is the 'home' directory of the user under Windows, e.g. if the user name is 'Monika', ~ corresponds to C:\Users\Monika)
-Create a Subfolder for Hooks
+### Create a Subfolder for Hooks
 
 Within the templates folder (~/.git_template) create a subfolder hooks.
-Put the Hook Script into that folder
+### Put the Hook Script into that folder
 
 Copy your post-commit script into ~/.git_template/hooks.
-Register The template Folder with Git
+### Register The template Folder with Git
 
 To do that you will have to perform the following (using Command Prompt):
 
 git config --global init.templatedir ~/.git_template
 
-Test the Installation
+### Test the Installation
 
 Create a new repository and perform a commit. If everything was OK, you will find a version.toml file in the folder.
     
